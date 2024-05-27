@@ -1,0 +1,13 @@
+[package]
+name = "hello-command"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.component]
+package = "component:command"
+
+[package.metadata.component.dependencies]
+
+[dependencies]
+bitflags = "2.5.0"
+wit-bindgen-rt = "0.24.0"

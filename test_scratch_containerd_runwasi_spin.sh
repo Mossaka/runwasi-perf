@@ -7,7 +7,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 echo "#########################################"
-echo "Containerd + RUNWASI with WASMTIME SHIM"
+echo "Containerd + RUNWASI with Spin SHIM"
 echo "#########################################"
 echo
 
@@ -25,7 +25,7 @@ for ((i=1; i<=$N; i++)); do
     start_timestamp=$(date +%s%3N)
 
     # Execute containerd with crun
-    end_timestamp=$(ctr run --rm --runtime io.containerd.wasmtime.v1 docker.io/mossaka/spin-command:0.1.0 test)
+    end_timestamp=$(ctr run --rm --runtime io.containerd.spin.v2  docker.io/library/spin_performance_test:v3 test)
 
     # Calculate the difference in milliseconds
     time_difference=$((end_timestamp - start_timestamp))
